@@ -6,8 +6,9 @@ import org.testng.annotations.Test;
 public class LoginTests extends BaseTest {
 
     @Test
-    public void test() throws InterruptedException {
-        Thread.sleep(5000);
+    public void loginTest()  {
+        loginPage
+                .login();
     }
 
 }

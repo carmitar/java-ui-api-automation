@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import pages.LoginPage;
 import support.ApplicationUrlUtils;
 import support.SetUp;
 
@@ -20,6 +21,7 @@ public class BaseTest {
      * Go into the class and see what is in
      */
     public TrelloApiService trelloApiService = new TrelloApiService();
+    public LoginPage loginPage = new LoginPage();
 
     /**
      * Method which execute before every test

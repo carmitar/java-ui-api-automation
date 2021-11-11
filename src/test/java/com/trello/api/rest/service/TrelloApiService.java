@@ -1,7 +1,6 @@
 package com.trello.api.rest.service;
 
-import com.trello.support.HelperMethods;
-import com.trello.support.ReadPropertyFile;
+import support.ApplicationUrlUtils;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
@@ -10,22 +9,22 @@ public class TrelloApiService {
 
     public RequestSpecification accessTrello() {
         return RestAssured.given()
-                .baseUri(ReadPropertyFile.getBaseUrl())
+                .baseUri(ApplicationUrlUtils.getBaseUrlApi())
                 .header("Accept", "application/json")
-                .queryParam("key", ReadPropertyFile.getKey())
-                .queryParam("token", ReadPropertyFile.getToken());
+                .queryParam("key", ApplicationUrlUtils.getKey())
+                .queryParam("token", ApplicationUrlUtils.getToken());
     }
 
     public Response createBoardParams(String boardName, String endPoint) {
         RequestSpecification request = RestAssured.given();
         return request
-                .baseUri(ReadPropertyFile.getBaseUrl())
+                .baseUri(ApplicationUrlUtils.getBaseUrlApi())
                 .queryParam("name", boardName)
-                .queryParam("key", ReadPropertyFile.getKey())
-                .queryParam("token", ReadPropertyFile.getToken())
-                .queryParam("defaultList", ReadPropertyFile.getDefaultList())
-                .queryParam("boardId", ReadPropertyFile.getBoardId())
-                .queryParam("idOrganization", ReadPropertyFile.getIdOrganization())
+                .queryParam("key", ApplicationUrlUtils.getKey())
+                .queryParam("token", ApplicationUrlUtils.getToken())
+                .queryParam("defaultList", ApplicationUrlUtils.getDefaultList())
+                .queryParam("boardId", ApplicationUrlUtils.getBoardId())
+                .queryParam("idOrganization", ApplicationUrlUtils.getIdOrganization())
                 .body("")
                 .post(endPoint);
     }

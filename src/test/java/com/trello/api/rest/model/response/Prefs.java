@@ -3,6 +3,8 @@ package com.trello.api.rest.model.response;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 public class Prefs {
@@ -17,6 +19,7 @@ public class Prefs {
     private boolean isTemplate;
     private String cardAging;
     private boolean calendarFeedEnabled;
+    private boolean isPluginHeaderShortcutsEnabled;
     private String background;
     private String backgroundImage;
     private String backgroundImageScaled;

@@ -1,4 +1,4 @@
-package com.trello.support;
+package com.trello.basement;
 
 import com.trello.api.rest.model.response.ColumnListResponse;
 import io.restassured.RestAssured;
@@ -7,11 +7,10 @@ import io.restassured.response.Response;
 import io.restassured.response.ResponseBody;
 import io.restassured.specification.RequestSpecification;
 import org.testng.annotations.Test;
+import support.ApplicationUrlUtils;
 
 import java.util.Collections;
 import java.util.List;
-
-import static com.trello.support.ReadPropertyFile.*;
 
 public class Ostava {
 
@@ -56,13 +55,13 @@ public class Ostava {
 
 
     public List<ColumnListResponse> getColumnList() {
-        RestAssured.baseURI = getBaseUrl();
+        RestAssured.baseURI = ApplicationUrlUtils.getBaseUrlApi();
         RequestSpecification request = RestAssured.given();
 
         Response response = request
                 .header("Accept", "application/json")
-                .queryParam("key", getKey())
-                .queryParam("token", getToken())
+                .queryParam("key", ApplicationUrlUtils.getKey())
+                .queryParam("token", ApplicationUrlUtils.getToken())
                 .pathParam("id", "611ec94354bb5a1f9a552137")
                 .body("")
                 .get("/1/boards/{id}/lists");

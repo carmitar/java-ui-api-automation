@@ -1,21 +1,19 @@
-package com.trello.support;
+package support;
 
-import com.trello.api.rest.service.TrelloApiService;
-import lombok.Getter;
+
+
+import jdk.nashorn.internal.objects.annotations.Getter;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-@Getter
-public class ReadPropertyFile {
-
-    public TrelloApiService trelloApiService = new TrelloApiService();
+public class ApplicationUrlUtils {
 
     private static Properties properties;
 
     public static InputStream readFile(String fileName) {
-        InputStream inputStream = ReadPropertyFile.class.getClassLoader().getResourceAsStream(fileName);
+        InputStream inputStream = ApplicationUrlUtils.class.getClassLoader().getResourceAsStream(fileName);
         if (inputStream == null) {
             System.out.println("Sorry, unable to find " + fileName);
         }
@@ -35,8 +33,12 @@ public class ReadPropertyFile {
         return properties;
     }
 
-    public static String getBaseUrl() {
-        return streamFile().getProperty("URL");
+    public static String getBaseUrlApi() {
+        return streamFile().getProperty("URL_API");
+    }
+
+    public static String getBaseUrlUi() {
+        return streamFile().getProperty("URL_UI");
     }
 
     public static String getKey() {
@@ -61,5 +63,17 @@ public class ReadPropertyFile {
 
     public static String getCreateBoardAPI() {
         return streamFile().getProperty("ID_ORGANIZATION");
+    }
+
+    public static String getUsername() {
+        return streamFile().getProperty("USERNAME");
+    }
+
+    public static String getPassword() {
+        return streamFile().getProperty("PASSWORD");
+    }
+
+    public static String getDriverName() {
+        return streamFile().getProperty("DRIVER_NAME_CHROME");
     }
 }

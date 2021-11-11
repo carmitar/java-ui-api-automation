@@ -18,5 +18,4 @@ public class BoardResponse {
     private String shortUrl;
     private Prefs prefs;
     private LabelNames labelNames;
-    private Limits limits;
 }

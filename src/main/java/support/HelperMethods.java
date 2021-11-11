@@ -1,4 +1,4 @@
-package com.trello.support;
+package support;
 
 import org.apache.commons.lang3.RandomStringUtils;
 

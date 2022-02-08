@@ -13,8 +13,8 @@ public class LoginTests extends BaseTest {
     @Description("Verify that user can login to the Trello application.")
     @Test
     public void loginTest(ITestContext testContext) throws InterruptedException {
-//        String loginToTrello = "2";
-//        setTestId(testContext, loginToTrello);
+        String loginToTrello = "2";
+        setTestId(testContext, loginToTrello);
         test = report.startTest("Verify that user can login to the Trello application.");
 
         HomePage homePage = loginPage

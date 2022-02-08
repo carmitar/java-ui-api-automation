@@ -19,7 +19,6 @@ public class LoginTests extends BaseTest {
 
         HomePage homePage = loginPage
                 .login();
-        Thread.sleep(7000);
         Assert.assertEquals(homePage.getUsernameLabelText(), "Most popular templates");
         test.log(LogStatus.PASS, "User is logged in and username label displayed.");
     }

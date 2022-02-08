@@ -76,4 +76,28 @@ public class ApplicationUrlUtils {
     public static String getDriverName() {
         return streamFile().getProperty("DRIVER_NAME_CHROME");
     }
+
+    public static String getTestRailEmail() {
+        return streamFile().getProperty("TR_EMAIL");
+    }
+
+    public static String getTestRailPassword() {
+        return streamFile().getProperty("TR_PASSWORD");
+    }
+
+    public static String getTestRailBaseApiUrl() {
+        return streamFile().getProperty("TR_BASE_API_URL");
+    }
+
+    public static int getAutomationUserId() {
+        return Integer.parseInt(streamFile().getProperty("TR_AUTOMATION_USER"));
+    }
+
+    public static String getFolderReportPath() {
+        return streamFile().getProperty("FOLDER_REPORT_PATH");
+    }
+
+    public static String getRegressionTesting() {
+        return streamFile().getProperty("REGRESSION_TESTING");
+    }
 }

@@ -85,4 +85,49 @@ public class Ostava {
         }
     }
 
+    //    public void sendResult(String testId, ITestResult result) throws IOException, TestRailAPIException {
+//        TestResultRequest request = new TestResultRequest();
+//        int automationUserId = applicationUrlUtils.getAutomationUserId();
+//        request.setAssignedto_id(automationUserId);
+//        if (result.getStatus() == ITestResult.SUCCESS) {
+//            request.setStatus_id(1);
+//        } else {
+//            request.setStatus_id(5);
+//        }
+//
+//        String testRailEmail = applicationUrlUtils.getTestRailEmail();
+//        String testRailPassword = applicationUrlUtils.getTestRailPassword();
+//        String baseApiUrl = applicationUrlUtils.getTestRailBaseApiUrl();
+//
+//        TestRailAPIClient client = new TestRailAPIClient(baseApiUrl);
+//        client.setUser(testRailEmail);
+//        client.setPassword(testRailPassword);
+//
+//        JSONObject postResult = (JSONObject) client.sendPost("add_result/" + testId, request);
+//    }
+
+//    public void sendResult(String testId, ITestResult result) {
+//        TestResultRequest request = new TestResultRequest();
+//        int automationUserId = applicationUrlUtils.getAutomationUserId();
+//        request.setAssignedto_id(automationUserId);
+//        if (result.getStatus() == ITestResult.SUCCESS) {
+//            request.setStatus_id(1);
+//        } else {
+//            request.setStatus_id(5);
+//        }
+//
+//        String testRailEmail = applicationUrlUtils.getTestRailEmail();
+//        String testRailPassword = applicationUrlUtils.getTestRailPassword();
+//
+//        JSONObject postResult = WebClient.builder()
+//                .defaultHeaders(httpHeaders -> httpHeaders.setBasicAuth(testRailEmail, testRailPassword))
+//                .build()
+//                .post()
+//                .uri("https://mitraxtest.testrail.io/index.php?/api/v2/add_result/1")
+//                .body(Mono.just(request), TestResultRequest.class)
+//                .retrieve()
+//                .bodyToMono(JSONObject.class)
+//                .block();
+//    }
+
 }

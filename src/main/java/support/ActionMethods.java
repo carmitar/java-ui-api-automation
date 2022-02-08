@@ -19,4 +19,8 @@ public class ActionMethods {
         element.sendKeys(enterText);
     }
 
+    public String getTextFromElement(By element) {
+        return WaitMethods.waitForVisibleElement(element).getText();
+    }
+
 }

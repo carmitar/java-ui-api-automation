@@ -16,17 +16,12 @@ public class TrelloApiService {
     }
 
     public Response createBoardParams(String boardName, String endPoint) {
-        RequestSpecification request = RestAssured.given();
-        return request
-                .baseUri(ApplicationUrlUtils.getBaseUrlApi())
+        return accessTrello()
                 .queryParam("name", boardName)
-                .queryParam("key", ApplicationUrlUtils.getKey())
-                .queryParam("token", ApplicationUrlUtils.getToken())
                 .queryParam("defaultList", ApplicationUrlUtils.getDefaultList())
                 .queryParam("boardId", ApplicationUrlUtils.getBoardId())
                 .queryParam("idOrganization", ApplicationUrlUtils.getIdOrganization())
                 .body("")
                 .post(endPoint);
     }
-
 }

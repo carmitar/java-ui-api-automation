@@ -19,7 +19,7 @@ public class Prefs {
     private boolean isTemplate;
     private String cardAging;
     private boolean calendarFeedEnabled;
-    private boolean isPluginHeaderShortcutsEnabled;
+    private List<String> hiddenPluginBoardButtons;
     private String background;
     private String backgroundImage;
     private String backgroundImageScaled;

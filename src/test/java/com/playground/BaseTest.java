@@ -5,6 +5,7 @@ import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 import com.playground.api.rest.service.TrelloApiService;
 import lombok.Getter;
+import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,8 +13,10 @@ import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import pages.LoginPage;
 import support.ApplicationUrlUtils;
 import support.Screenshot;
+import support.SetUp;
 import testrail.TestRailService;
 
 import java.io.IOException;
@@ -29,7 +32,6 @@ public class BaseTest {
     public ExtentReports report;
     public ExtentTest test;
     private final TestRailService testRailService;
-
     private final String TEST_ID_KEY = "testId";
     private boolean isRegressionTesting;
     private final Logger LOGGER = LoggerFactory.getLogger(BaseTest.class);
@@ -38,7 +40,7 @@ public class BaseTest {
      * Go into the class and see what is in
      */
     public TrelloApiService trelloApiService = new TrelloApiService();
-//    public LoginPage loginPage = new LoginPage();
+    public LoginPage loginPage = new LoginPage();
 
     public BaseTest() {
         testRailService = new TestRailService();
@@ -58,13 +60,13 @@ public class BaseTest {
             String reportPath = ApplicationUrlUtils.getFolderReportPath();
             report = new ExtentReports(reportPath, false);
 
-//            driver = SetUp.createDriver();
-//
-//            driver.manage().window().maximize();
+            driver = SetUp.createDriver();
+
+            driver.manage().window().maximize();
             this.isRegressionTesting = Boolean.parseBoolean(ApplicationUrlUtils.getRegressionTesting());
-//            if (StringUtils.isBlank(url)) {
-//                driver.get(ApplicationUrlUtils.getBaseUrlUi());
-//            }
+            if (StringUtils.isBlank(url)) {
+                driver.get(ApplicationUrlUtils.getBaseUrlUi());
+            }
         } catch (Exception exc) {
             LOGGER.error("Failed to instantiate and load properties and web driver!");
             throw exc;
@@ -90,7 +92,7 @@ public class BaseTest {
             testRailService.sendResult(testId, testResult);
         }
 
-//        SetUp.quitDriver();
+        SetUp.quitDriver();
         report.endTest(test);
         report.flush();
     }

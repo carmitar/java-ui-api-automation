@@ -7,12 +7,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="com.playground" />
+        <module name="com.trello" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="" target="1.8" />
       <module name="carevic-playground" target="1.8" />
+      <module name="com.playground" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

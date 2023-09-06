@@ -1,0 +1,1 @@
+{"uuid":"377b7731-9773-4933-b435-db5b02e1971b","name":"com.trello.BaseTest.tearDown","children":["6b4ba187-4c37-4d60-9310-ea1d82f63b86"],"description":"","befores":[],"afters":[{"name":"tearDown","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1694027864716,"stop":1694027864965}],"start":1694027864716,"stop":1694027864965}
